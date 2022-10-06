@@ -1,0 +1,20 @@
+name: karaoke_request_api
+description: The API for the Karaoke Request Client
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.18.0-165.1.beta <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.0.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
