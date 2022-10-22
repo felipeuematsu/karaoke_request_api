@@ -1,9 +1,8 @@
 class KaraokeAPIConfiguration {
   const KaraokeAPIConfiguration({
-    required this.baseUrl,
-    required this.port,
+    required this.baseUrl, this.port
   });
 
   final String baseUrl;
-  final int port;
+  final int? port;
 }

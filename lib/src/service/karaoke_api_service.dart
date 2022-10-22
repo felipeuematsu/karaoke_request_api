@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:karaoke_request_api/karaoke_request_api.dart';
 import 'package:karaoke_request_api/src/configuration/karaoke_api_configuration.dart';
 import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
@@ -15,27 +16,19 @@ class KaraokeApiService {
   final KaraokeAPIConfiguration configuration;
 
   late final _dio = Dio(
-    BaseOptions(
-      baseUrl: '${configuration.baseUrl}:${configuration.port}',
-    ),
-  )
-    ..interceptors.add(PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-      responseBody: true,
-      responseHeader: true,
-      error: true,
+    BaseOptions(baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl),
+  )..interceptors.add(PrettyDioLogger(
+      requestHeader: kDebugMode,
+      requestBody: kDebugMode,
+      responseBody: kDebugMode,
+      responseHeader: kDebugMode,
+      error: kDebugMode,
       compact: true,
       maxWidth: 90,
     ));
 
   Future<SongSearchResponse> search(String? title, String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch, queryParameters: {
-      if (title != null) 'title': title,
-      if (artist != null) 'artist': artist,
-      'page': page,
-      'pageCount': pageCount
-    });
+    final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
 
     return SongSearchResponse.fromMap(response.data);
   }
@@ -100,7 +93,6 @@ class KaraokeApiService {
       }
       rethrow;
     }
-
   }
 
   Future<List<SingerModel>> getSingers() async {
@@ -133,5 +125,4 @@ class KaraokeApiService {
   Future<void> volumeDown() async {
     await _dio.post('${Endpoints.kVolume}/down');
   }
-
 }
