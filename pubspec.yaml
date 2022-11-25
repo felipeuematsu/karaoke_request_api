@@ -1,6 +1,6 @@
 name: karaoke_request_api
 description: The API for the Karaoke Request Client
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:

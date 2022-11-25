@@ -1,6 +1,4 @@
 class Endpoints {
-
-
   const Endpoints._();
 
   static const String kPlay = '/play';
@@ -16,4 +14,5 @@ class Endpoints {
   static const String kSinger = '/singer';
   static const String kYoutubeSong = '/song/youtube';
   static const String kVolume = '/volume';
+  static const String kHealth = '/health';
 }

@@ -125,4 +125,13 @@ class KaraokeApiService {
   Future<void> volumeDown() async {
     await _dio.post('${Endpoints.kVolume}/down');
   }
+
+  Future<bool> health() async {
+    try {
+      final response = await _dio.get(Endpoints.kHealth);
+      return response.statusCode == 200;
+    } on Error {
+      return false;
+    }
+  }
 }
