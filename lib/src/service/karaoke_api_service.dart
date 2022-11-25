@@ -15,9 +15,11 @@ class KaraokeApiService {
 
   final KaraokeAPIConfiguration configuration;
 
-  late final _dio = Dio(
-    BaseOptions(baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl),
-  )..interceptors.add(PrettyDioLogger(
+  late final _dio = Dio(BaseOptions(
+    baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl,
+    connectTimeout: 500,
+  ))
+    ..interceptors.add(PrettyDioLogger(
       requestHeader: kDebugMode,
       requestBody: kDebugMode,
       responseBody: kDebugMode,
