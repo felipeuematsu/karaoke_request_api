@@ -132,7 +132,7 @@ class KaraokeApiService {
     try {
       final response = await _dio.get(Endpoints.kHealth);
       return response.statusCode == 200;
-    } on Error {
+    } on DioError {
       return false;
     }
   }
