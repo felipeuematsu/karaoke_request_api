@@ -18,7 +18,11 @@ on:
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  # This workflow contains a single job called "build"
   build:
+    outputs:
+      version: ${{ steps.version.outputs.data }}
+      exists: ${{ steps.checkTag.outputs.exists }}
     name: flutter build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -43,17 +47,24 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
       - run: flutter pub get
       - run: flutter analyze --no-fatal-warnings --no-fatal-infos
-      - run: flutter build web
-      - run: flutter build appbundle --debug
 
       - uses: mukunku/tag-exists-action@v1.2.0
         id: checkTag
         with:
           tag: "${{ steps.version.outputs.data }}"
 
-      - name: Create Tag
-        uses: rickstaa/action-create-tag@v1
-        force_push_tag: true
-        no_verify_tag: true
+      - name: Create Release
+        if: steps.checkTag.outputs.exists == 'false'
+        uses: avakar/tag-and-release@v1
         with:
-          tag: "${{ steps.version.outputs.data }}"
+          tag_name: "${{ steps.version.outputs.data }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache bundle dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gems-
+
