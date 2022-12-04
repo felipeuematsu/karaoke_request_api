@@ -10,6 +10,7 @@ class Endpoints {
   static const String kUpdatePlaylists = '/playlist/update-default';
   static const String kSearch = '/search';
   static const String kQueue = '/queue';
+  static const String kReorderQueue = '/queue/reorder';
   static const String kSingers = '/singers';
   static const String kSinger = '/singer';
   static const String kYoutubeSong = '/song/youtube';

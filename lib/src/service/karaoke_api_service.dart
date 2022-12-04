@@ -136,4 +136,11 @@ class KaraokeApiService {
       return false;
     }
   }
+
+  Future<void> reorderQueue(int queueSongId, int newIndex) async {
+    await _dio.put(Endpoints.kReorderQueue, data: {
+      'queueSongId': queueSongId,
+      'newIndex': newIndex,
+    });
+  }
 }
