@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:karaoke_request_api/karaoke_request_api.dart';
 import 'package:karaoke_request_api/src/configuration/karaoke_api_configuration.dart';
 import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
 import 'package:karaoke_request_api/src/model/playlist_model.dart';
 import 'package:karaoke_request_api/src/model/simple_playlist_model.dart';
 import 'package:karaoke_request_api/src/model/singer_model.dart';
+import 'package:karaoke_request_api/src/model/song_queue_item.dart';
 import 'package:karaoke_request_api/src/model/song_search_response.dart';
+import 'package:karaoke_request_api/src/model/youtube_song_dto.dart';
 import 'package:karaoke_request_api/src/service/endpoints.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -15,10 +16,7 @@ class KaraokeApiService {
 
   final KaraokeAPIConfiguration configuration;
 
-  late final _dio = Dio(BaseOptions(
-    baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl,
-    connectTimeout: 500,
-  ))
+  late final _dio = Dio(BaseOptions(baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl))
     ..interceptors.add(PrettyDioLogger(
       requestHeader: kDebugMode,
       requestBody: kDebugMode,
