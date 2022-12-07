@@ -5,6 +5,7 @@ import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
 import 'package:karaoke_request_api/src/model/playlist_model.dart';
 import 'package:karaoke_request_api/src/model/simple_playlist_model.dart';
 import 'package:karaoke_request_api/src/model/singer_model.dart';
+import 'package:karaoke_request_api/src/model/song_model.dart';
 import 'package:karaoke_request_api/src/model/song_queue_item.dart';
 import 'package:karaoke_request_api/src/model/song_search_response.dart';
 import 'package:karaoke_request_api/src/model/youtube_song_dto.dart';
@@ -114,8 +115,9 @@ class KaraokeApiService {
     });
   }
 
-  Future<void> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
-    await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toMap());
+  Future<SongModel> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
+    final response = await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toMap());
+    return SongModel.fromMap(response.data);
   }
 
   Future<void> volumeUp() async {
