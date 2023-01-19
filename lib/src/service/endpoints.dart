@@ -9,6 +9,7 @@ class Endpoints {
   static const String kPlaylist = '/playlist';
   static const String kUpdatePlaylists = '/playlist/update-default';
   static const String kSearch = '/search';
+  static const String kSearchArtist = '/search/artist';
   static const String kQueue = '/queue';
   static const String kReorderQueue = '/queue/reorder';
   static const String kSingers = '/singers';
@@ -16,4 +17,5 @@ class Endpoints {
   static const String kYoutubeSong = '/song/youtube';
   static const String kVolume = '/volume';
   static const String kHealth = '/health';
+  static const String kPath = '/path';
 }
