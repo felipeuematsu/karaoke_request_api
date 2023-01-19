@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:karaoke_request_api/src/configuration/karaoke_api_configuration.dart';
 import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
 import 'package:karaoke_request_api/src/model/playlist_model.dart';
+import 'package:karaoke_request_api/src/model/repository_path_model.dart';
 import 'package:karaoke_request_api/src/model/simple_playlist_model.dart';
 import 'package:karaoke_request_api/src/model/singer_model.dart';
 import 'package:karaoke_request_api/src/model/song_model.dart';
@@ -30,7 +31,11 @@ class KaraokeApiService {
 
   Future<SongSearchResponse> search(String? title, String? artist, int page, int pageCount) async {
     final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
+    return SongSearchResponse.fromMap(response.data);
+  }
 
+  Future<SongSearchResponse> searchArtist(String? artist, int page, int pageCount) async {
+    final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
     return SongSearchResponse.fromMap(response.data);
   }
 
@@ -142,5 +147,27 @@ class KaraokeApiService {
       'queueSongId': queueSongId,
       'newIndex': newIndex,
     });
+  }
+
+  Future<List<RepositoryPathModel>> addPath(RepositoryPathModel path) async {
+    final res = await _dio.post(Endpoints.kPath, data: [path.toMap()]);
+    final list = res.data as List;
+    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+  }
+
+  Future<List<RepositoryPathModel>> getPaths() async {
+    final res = await _dio.get(Endpoints.kPath);
+    final list = res.data as List;
+    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+  }
+
+  Future<List<RepositoryPathModel>> setPaths(List<RepositoryPathModel> paths) async {
+    final res = await _dio.put(Endpoints.kPath, data: paths.map((e) => e.toMap()).toList());
+    final list = res.data as List;
+    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+  }
+
+  Future<void> setDownloadsPath(String path) async {
+    await _dio.post('${Endpoints.kPath}/download', data: path);
   }
 }
