@@ -30,7 +30,8 @@ class KaraokeApiService {
     ));
 
   Future<SongSearchResponse> search(String? title, String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
+    final response = await _dio.get(Endpoints.kSearch,
+        queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
     return SongSearchResponse.fromMap(response.data);
   }
 
@@ -93,7 +94,7 @@ class KaraokeApiService {
   Future<void> skip() async {
     try {
       await _dio.post(Endpoints.kSkip);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.response?.statusCode == 404) {
         return;
       }
@@ -137,7 +138,7 @@ class KaraokeApiService {
     try {
       final response = await _dio.get(Endpoints.kHealth);
       return response.statusCode == 200;
-    } on DioError {
+    } on DioException {
       return false;
     }
   }
