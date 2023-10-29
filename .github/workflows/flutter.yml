@@ -48,6 +48,11 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
+      - uses: nikosportolos/dart_package@v0.2.1
+        with:
+          publish: true
+          pubdev_token: ${{ secrets.PUB_TOKEN }}
+
       - uses: mukunku/tag-exists-action@v1.2.0
         id: checkTag
         with:
