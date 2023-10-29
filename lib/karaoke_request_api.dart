@@ -14,4 +14,4 @@ export 'src/model/video_manifest_response.dart';
 export 'src/model/youtube_song_dto.dart';
 export 'src/service/endpoints.dart';
 export 'src/service/karaoke_api_service.dart';
-export 'src/model/song_model.dart';
+export 'src/model/song_search_response.dart';
