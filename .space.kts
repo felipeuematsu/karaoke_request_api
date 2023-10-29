@@ -13,7 +13,7 @@ job("Build, run tests, and publish") {
                 echo Authorize in Space Packages...
                 dart pub token add https://dart.pkg.jetbrains.space/flup/p/main/flup --env-var JB_SPACE_CLIENT_TOKEN
                 echo Start publishing...
-                dart pub publish -f
+                flutter pub publish -f
             """
         }
     }
