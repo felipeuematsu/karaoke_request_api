@@ -5,7 +5,7 @@
 */
 
 job("Build, run tests, and publish") {
-    container(displayName = "Run script", image = "ghcr.io/cirruslabs/flutter:stable ") {
+    container(displayName = "Run script", image = "fischerscode/flutter") {
         shellScript {
             content = """
  				flutter analyze --no-fatal-warnings --no-fatal-infos
