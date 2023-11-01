@@ -116,6 +116,17 @@ class KaraokeApiService {
     }
   }
 
+  Future<void> restart() async {
+    try {
+      await _dio.post(Endpoints.kRestart);
+    } on DioException catch (e) {
+      if (e.response?.statusCode == 404) {
+        return;
+      }
+      rethrow;
+    }
+  }
+
   Future<List<SingerModel>> getSingers() async {
     final response = await _dio.get(Endpoints.kSingers);
     final singers = response.data as List;

@@ -5,6 +5,7 @@ class Endpoints {
   static const String kPause = '/pause';
   static const String kStop = '/stop';
   static const String kSkip = '/skip';
+  static const String kRestart = '/restart';
   static const String kCurrentSong = '/playing';
   static const String kPlaylist = '/playlist';
   static const String kUpdatePlaylists = '/playlist/update-default';
