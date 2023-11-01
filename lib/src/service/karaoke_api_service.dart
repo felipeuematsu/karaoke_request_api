@@ -18,7 +18,10 @@ class KaraokeApiService {
 
   final KaraokeAPIConfiguration configuration;
 
-  late final _dio = Dio(BaseOptions(baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl))
+  late final _dio = Dio(BaseOptions(
+      baseUrl: configuration.port != null
+          ? '${configuration.baseUrl}:${configuration.port}'
+          : configuration.baseUrl))
     ..interceptors.add(PrettyDioLogger(
       requestHeader: kDebugMode,
       requestBody: kDebugMode,
@@ -29,18 +32,29 @@ class KaraokeApiService {
       maxWidth: 90,
     ));
 
-  Future<SongSearchResponse> search(String? title, String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch,
-        queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
+  Future<SongSearchResponse> search(
+      String? title, String? artist, int page, int pageCount) async {
+    final response = await _dio.get(Endpoints.kSearch, queryParameters: {
+      if (title != null) 'title': title,
+      if (artist != null) 'artist': artist,
+      'page': page,
+      'pageCount': pageCount
+    });
     return SongSearchResponse.fromMap(response.data);
   }
 
-  Future<SongSearchResponse> searchArtist(String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
+  Future<SongSearchResponse> searchArtist(
+      String? artist, int page, int pageCount) async {
+    final response = await _dio.get(Endpoints.kSearch, queryParameters: {
+      if (artist != null) 'artist': artist,
+      'page': page,
+      'pageCount': pageCount
+    });
     return SongSearchResponse.fromMap(response.data);
   }
 
-  Future<void> addToQueue(int songId, String singerName, {int? keyChange}) async {
+  Future<void> addToQueue(int songId, String singerName,
+      {int? keyChange}) async {
     await _dio.post(Endpoints.kQueue, data: {
       'songId': songId,
       'singerName': singerName,
@@ -122,7 +136,8 @@ class KaraokeApiService {
   }
 
   Future<SongModel> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
-    final response = await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toMap());
+    final response =
+        await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toMap());
     return SongModel.fromMap(response.data);
   }
 
@@ -132,6 +147,10 @@ class KaraokeApiService {
 
   Future<void> volumeDown() async {
     await _dio.post('${Endpoints.kVolume}/down');
+  }
+
+  Future<void> setVolume(int value) async {
+    await _dio.post(Endpoints.kVolume, data: {'volume': value});
   }
 
   Future<bool> health() async {
@@ -162,8 +181,10 @@ class KaraokeApiService {
     return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
   }
 
-  Future<List<RepositoryPathModel>> setPaths(List<RepositoryPathModel> paths) async {
-    final res = await _dio.put(Endpoints.kPath, data: paths.map((e) => e.toMap()).toList());
+  Future<List<RepositoryPathModel>> setPaths(
+      List<RepositoryPathModel> paths) async {
+    final res = await _dio.put(Endpoints.kPath,
+        data: paths.map((e) => e.toMap()).toList());
     final list = res.data as List;
     return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
   }
