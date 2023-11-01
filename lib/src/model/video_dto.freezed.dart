@@ -125,10 +125,11 @@ class _$VideoDtoCopyWithImpl<$Res, $Val extends VideoDto>
 }
 
 /// @nodoc
-abstract class _$$_VideoDtoCopyWith<$Res> implements $VideoDtoCopyWith<$Res> {
-  factory _$$_VideoDtoCopyWith(
-          _$_VideoDto value, $Res Function(_$_VideoDto) then) =
-      __$$_VideoDtoCopyWithImpl<$Res>;
+abstract class _$$VideoDtoImplCopyWith<$Res>
+    implements $VideoDtoCopyWith<$Res> {
+  factory _$$VideoDtoImplCopyWith(
+          _$VideoDtoImpl value, $Res Function(_$VideoDtoImpl) then) =
+      __$$VideoDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -146,11 +147,11 @@ abstract class _$$_VideoDtoCopyWith<$Res> implements $VideoDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_VideoDtoCopyWithImpl<$Res>
-    extends _$VideoDtoCopyWithImpl<$Res, _$_VideoDto>
-    implements _$$_VideoDtoCopyWith<$Res> {
-  __$$_VideoDtoCopyWithImpl(
-      _$_VideoDto _value, $Res Function(_$_VideoDto) _then)
+class __$$VideoDtoImplCopyWithImpl<$Res>
+    extends _$VideoDtoCopyWithImpl<$Res, _$VideoDtoImpl>
+    implements _$$VideoDtoImplCopyWith<$Res> {
+  __$$VideoDtoImplCopyWithImpl(
+      _$VideoDtoImpl _value, $Res Function(_$VideoDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -165,7 +166,7 @@ class __$$_VideoDtoCopyWithImpl<$Res>
     Object? thumbnails = freezed,
     Object? uploadDate = freezed,
   }) {
-    return _then(_$_VideoDto(
+    return _then(_$VideoDtoImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -204,8 +205,8 @@ class __$$_VideoDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VideoDto implements _VideoDto {
-  const _$_VideoDto(
+class _$VideoDtoImpl implements _VideoDto {
+  const _$VideoDtoImpl(
       {this.id,
       this.title,
       this.author,
@@ -215,8 +216,8 @@ class _$_VideoDto implements _VideoDto {
       this.thumbnails,
       this.uploadDate});
 
-  factory _$_VideoDto.fromJson(Map<String, dynamic> json) =>
-      _$$_VideoDtoFromJson(json);
+  factory _$VideoDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VideoDtoImplFromJson(json);
 
   @override
   final String? id;
@@ -244,7 +245,7 @@ class _$_VideoDto implements _VideoDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VideoDto &&
+            other is _$VideoDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.author, author) || other.author == author) &&
@@ -268,12 +269,12 @@ class _$_VideoDto implements _VideoDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VideoDtoCopyWith<_$_VideoDto> get copyWith =>
-      __$$_VideoDtoCopyWithImpl<_$_VideoDto>(this, _$identity);
+  _$$VideoDtoImplCopyWith<_$VideoDtoImpl> get copyWith =>
+      __$$VideoDtoImplCopyWithImpl<_$VideoDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VideoDtoToJson(
+    return _$$VideoDtoImplToJson(
       this,
     );
   }
@@ -288,9 +289,10 @@ abstract class _VideoDto implements VideoDto {
       final Duration? duration,
       final int? viewCount,
       final Thumbnails? thumbnails,
-      final DateTime? uploadDate}) = _$_VideoDto;
+      final DateTime? uploadDate}) = _$VideoDtoImpl;
 
-  factory _VideoDto.fromJson(Map<String, dynamic> json) = _$_VideoDto.fromJson;
+  factory _VideoDto.fromJson(Map<String, dynamic> json) =
+      _$VideoDtoImpl.fromJson;
 
   @override
   String? get id;
@@ -310,6 +312,6 @@ abstract class _VideoDto implements VideoDto {
   DateTime? get uploadDate;
   @override
   @JsonKey(ignore: true)
-  _$$_VideoDtoCopyWith<_$_VideoDto> get copyWith =>
+  _$$VideoDtoImplCopyWith<_$VideoDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

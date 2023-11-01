@@ -1,62 +1,20 @@
-class SimplePlaylistModel {
-  int? id;
-  String? name;
-  String? imageUrl;
-  String? description;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-//<editor-fold desc="Data Methods">
+part 'simple_playlist_model.freezed.dart';
 
-  SimplePlaylistModel({
-    this.id,
-    this.name,
-    this.imageUrl,
-    this.description,
-  });
+part 'simple_playlist_model.g.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is SimplePlaylistModel && runtimeType == other.runtimeType && id == other.id && name == other.name && imageUrl == other.imageUrl && description == other.description);
-
-  @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ imageUrl.hashCode ^ description.hashCode;
-
-  @override
-  String toString() {
-    return 'SimplePlaylistModel{ id: $id, name: $name, imageUrl: $imageUrl, description: $description,}';
-  }
-
-  SimplePlaylistModel copyWith({
+@freezed
+class SimplePlaylistModel with _$SimplePlaylistModel {
+  const factory SimplePlaylistModel({
     int? id,
     String? name,
     String? imageUrl,
     String? description,
-  }) {
-    return SimplePlaylistModel(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      imageUrl: imageUrl ?? this.imageUrl,
-      description: description ?? this.description,
-    );
-  }
+  }) = _SimplePlaylistModel;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'imageUrl': imageUrl,
-      'description': description,
-    };
-  }
-
-  factory SimplePlaylistModel.fromMap(Map<String, dynamic> map) {
-    return SimplePlaylistModel(
-      id: map['id'] as int?,
-      name: map['name'] as String?,
-      imageUrl: map['imageUrl'] as String?,
-      description: map['description'] as String?,
-    );
-  }
-
-//</editor-fold>
+  factory SimplePlaylistModel.fromJson(Map<String, dynamic> json) =>
+      _$SimplePlaylistModelFromJson(json);
 }
+

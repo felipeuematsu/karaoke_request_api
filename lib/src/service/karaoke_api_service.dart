@@ -40,7 +40,7 @@ class KaraokeApiService {
       'page': page,
       'pageCount': pageCount
     });
-    return SongSearchResponse.fromMap(response.data);
+    return SongSearchResponse.fromJson(response.data);
   }
 
   Future<SongSearchResponse> searchArtist(
@@ -50,7 +50,7 @@ class KaraokeApiService {
       'page': page,
       'pageCount': pageCount
     });
-    return SongSearchResponse.fromMap(response.data);
+    return SongSearchResponse.fromJson(response.data);
   }
 
   Future<void> addToQueue(int songId, String singerName,
@@ -69,13 +69,13 @@ class KaraokeApiService {
   Future<List<SongQueueItem>> getQueue() async {
     final response = await _dio.get(Endpoints.kQueue);
     final list = response.data as List;
-    return list.map((e) => SongQueueItem.fromMap(e)).toList();
+    return list.map((e) => SongQueueItem.fromJson(e)).toList();
   }
 
   Future<List<SimplePlaylistModel>> getPlaylists() async {
     final response = await _dio.get(Endpoints.kPlaylist);
     final playlists = response.data as List;
-    return playlists.map((map) => SimplePlaylistModel.fromMap(map)).toList();
+    return playlists.map((map) => SimplePlaylistModel.fromJson(map)).toList();
   }
 
   Future<void> updatePlaylists() async {
@@ -84,13 +84,13 @@ class KaraokeApiService {
 
   Future<PlaylistModel> getPlaylist(int id) async {
     final response = await _dio.get('${Endpoints.kPlaylist}/$id');
-    return PlaylistModel.fromMap(response.data);
+    return PlaylistModel.fromJson(response.data);
   }
 
   Future<NowPlayingSongModel?> getNowPlayingSong() async {
     final response = await _dio.get(Endpoints.kCurrentSong);
     if (response.statusCode == 204) return null;
-    return NowPlayingSongModel.fromMap(response.data);
+    return NowPlayingSongModel.fromJson(response.data);
   }
 
   Future<void> play() async {
@@ -130,7 +130,7 @@ class KaraokeApiService {
   Future<List<SingerModel>> getSingers() async {
     final response = await _dio.get(Endpoints.kSingers);
     final singers = response.data as List;
-    return singers.map((map) => SingerModel.fromMap(map)).toList();
+    return singers.map((map) => SingerModel.fromJson(map)).toList();
   }
 
   Future<void> editSinger(SingerModel singer) async {
@@ -148,8 +148,8 @@ class KaraokeApiService {
 
   Future<SongModel> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
     final response =
-        await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toMap());
-    return SongModel.fromMap(response.data);
+        await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toJson());
+    return SongModel.fromJson(response.data);
   }
 
   Future<void> volumeUp() async {
@@ -181,23 +181,23 @@ class KaraokeApiService {
   }
 
   Future<List<RepositoryPathModel>> addPath(RepositoryPathModel path) async {
-    final res = await _dio.post(Endpoints.kPath, data: [path.toMap()]);
+    final res = await _dio.post(Endpoints.kPath, data: [path.toJson()]);
     final list = res.data as List;
-    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+    return list.map((e) => RepositoryPathModel.fromJson(e)).toList();
   }
 
   Future<List<RepositoryPathModel>> getPaths() async {
     final res = await _dio.get(Endpoints.kPath);
     final list = res.data as List;
-    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+    return list.map((e) => RepositoryPathModel.fromJson(e)).toList();
   }
 
   Future<List<RepositoryPathModel>> setPaths(
       List<RepositoryPathModel> paths) async {
     final res = await _dio.put(Endpoints.kPath,
-        data: paths.map((e) => e.toMap()).toList());
+        data: paths.map((e) => e.toJson()).toList());
     final list = res.data as List;
-    return list.map((e) => RepositoryPathModel.fromMap(e)).toList();
+    return list.map((e) => RepositoryPathModel.fromJson(e)).toList();
   }
 
   Future<void> setDownloadsPath(String path) async {

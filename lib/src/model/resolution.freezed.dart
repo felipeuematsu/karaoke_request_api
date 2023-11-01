@@ -68,22 +68,22 @@ class _$ResolutionCopyWithImpl<$Res, $Val extends Resolution>
 }
 
 /// @nodoc
-abstract class _$$_ResolutionCopyWith<$Res>
+abstract class _$$ResolutionImplCopyWith<$Res>
     implements $ResolutionCopyWith<$Res> {
-  factory _$$_ResolutionCopyWith(
-          _$_Resolution value, $Res Function(_$_Resolution) then) =
-      __$$_ResolutionCopyWithImpl<$Res>;
+  factory _$$ResolutionImplCopyWith(
+          _$ResolutionImpl value, $Res Function(_$ResolutionImpl) then) =
+      __$$ResolutionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? width, int? height});
 }
 
 /// @nodoc
-class __$$_ResolutionCopyWithImpl<$Res>
-    extends _$ResolutionCopyWithImpl<$Res, _$_Resolution>
-    implements _$$_ResolutionCopyWith<$Res> {
-  __$$_ResolutionCopyWithImpl(
-      _$_Resolution _value, $Res Function(_$_Resolution) _then)
+class __$$ResolutionImplCopyWithImpl<$Res>
+    extends _$ResolutionCopyWithImpl<$Res, _$ResolutionImpl>
+    implements _$$ResolutionImplCopyWith<$Res> {
+  __$$ResolutionImplCopyWithImpl(
+      _$ResolutionImpl _value, $Res Function(_$ResolutionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ResolutionCopyWithImpl<$Res>
     Object? width = freezed,
     Object? height = freezed,
   }) {
-    return _then(_$_Resolution(
+    return _then(_$ResolutionImpl(
       width: freezed == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_ResolutionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Resolution implements _Resolution {
-  const _$_Resolution({this.width, this.height});
+class _$ResolutionImpl implements _Resolution {
+  const _$ResolutionImpl({this.width, this.height});
 
-  factory _$_Resolution.fromJson(Map<String, dynamic> json) =>
-      _$$_ResolutionFromJson(json);
+  factory _$ResolutionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResolutionImplFromJson(json);
 
   @override
   final int? width;
@@ -127,7 +127,7 @@ class _$_Resolution implements _Resolution {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Resolution &&
+            other is _$ResolutionImpl &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
   }
@@ -139,12 +139,12 @@ class _$_Resolution implements _Resolution {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResolutionCopyWith<_$_Resolution> get copyWith =>
-      __$$_ResolutionCopyWithImpl<_$_Resolution>(this, _$identity);
+  _$$ResolutionImplCopyWith<_$ResolutionImpl> get copyWith =>
+      __$$ResolutionImplCopyWithImpl<_$ResolutionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResolutionToJson(
+    return _$$ResolutionImplToJson(
       this,
     );
   }
@@ -152,10 +152,10 @@ class _$_Resolution implements _Resolution {
 
 abstract class _Resolution implements Resolution {
   const factory _Resolution({final int? width, final int? height}) =
-      _$_Resolution;
+      _$ResolutionImpl;
 
   factory _Resolution.fromJson(Map<String, dynamic> json) =
-      _$_Resolution.fromJson;
+      _$ResolutionImpl.fromJson;
 
   @override
   int? get width;
@@ -163,6 +163,6 @@ abstract class _Resolution implements Resolution {
   int? get height;
   @override
   @JsonKey(ignore: true)
-  _$$_ResolutionCopyWith<_$_Resolution> get copyWith =>
+  _$$ResolutionImplCopyWith<_$ResolutionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

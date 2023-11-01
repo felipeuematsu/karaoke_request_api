@@ -84,11 +84,12 @@ class _$VideoManifestResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_VideoManifestResponseCopyWith<$Res>
+abstract class _$$VideoManifestResponseImplCopyWith<$Res>
     implements $VideoManifestResponseCopyWith<$Res> {
-  factory _$$_VideoManifestResponseCopyWith(_$_VideoManifestResponse value,
-          $Res Function(_$_VideoManifestResponse) then) =
-      __$$_VideoManifestResponseCopyWithImpl<$Res>;
+  factory _$$VideoManifestResponseImplCopyWith(
+          _$VideoManifestResponseImpl value,
+          $Res Function(_$VideoManifestResponseImpl) then) =
+      __$$VideoManifestResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Resolution? resolution, String? stream});
@@ -98,11 +99,12 @@ abstract class _$$_VideoManifestResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VideoManifestResponseCopyWithImpl<$Res>
-    extends _$VideoManifestResponseCopyWithImpl<$Res, _$_VideoManifestResponse>
-    implements _$$_VideoManifestResponseCopyWith<$Res> {
-  __$$_VideoManifestResponseCopyWithImpl(_$_VideoManifestResponse _value,
-      $Res Function(_$_VideoManifestResponse) _then)
+class __$$VideoManifestResponseImplCopyWithImpl<$Res>
+    extends _$VideoManifestResponseCopyWithImpl<$Res,
+        _$VideoManifestResponseImpl>
+    implements _$$VideoManifestResponseImplCopyWith<$Res> {
+  __$$VideoManifestResponseImplCopyWithImpl(_$VideoManifestResponseImpl _value,
+      $Res Function(_$VideoManifestResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +113,7 @@ class __$$_VideoManifestResponseCopyWithImpl<$Res>
     Object? resolution = freezed,
     Object? stream = freezed,
   }) {
-    return _then(_$_VideoManifestResponse(
+    return _then(_$VideoManifestResponseImpl(
       resolution: freezed == resolution
           ? _value.resolution
           : resolution // ignore: cast_nullable_to_non_nullable
@@ -126,11 +128,11 @@ class __$$_VideoManifestResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VideoManifestResponse implements _VideoManifestResponse {
-  const _$_VideoManifestResponse({this.resolution, this.stream});
+class _$VideoManifestResponseImpl implements _VideoManifestResponse {
+  const _$VideoManifestResponseImpl({this.resolution, this.stream});
 
-  factory _$_VideoManifestResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_VideoManifestResponseFromJson(json);
+  factory _$VideoManifestResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VideoManifestResponseImplFromJson(json);
 
   @override
   final Resolution? resolution;
@@ -146,7 +148,7 @@ class _$_VideoManifestResponse implements _VideoManifestResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VideoManifestResponse &&
+            other is _$VideoManifestResponseImpl &&
             (identical(other.resolution, resolution) ||
                 other.resolution == resolution) &&
             (identical(other.stream, stream) || other.stream == stream));
@@ -159,13 +161,13 @@ class _$_VideoManifestResponse implements _VideoManifestResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VideoManifestResponseCopyWith<_$_VideoManifestResponse> get copyWith =>
-      __$$_VideoManifestResponseCopyWithImpl<_$_VideoManifestResponse>(
-          this, _$identity);
+  _$$VideoManifestResponseImplCopyWith<_$VideoManifestResponseImpl>
+      get copyWith => __$$VideoManifestResponseImplCopyWithImpl<
+          _$VideoManifestResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VideoManifestResponseToJson(
+    return _$$VideoManifestResponseImplToJson(
       this,
     );
   }
@@ -174,10 +176,10 @@ class _$_VideoManifestResponse implements _VideoManifestResponse {
 abstract class _VideoManifestResponse implements VideoManifestResponse {
   const factory _VideoManifestResponse(
       {final Resolution? resolution,
-      final String? stream}) = _$_VideoManifestResponse;
+      final String? stream}) = _$VideoManifestResponseImpl;
 
   factory _VideoManifestResponse.fromJson(Map<String, dynamic> json) =
-      _$_VideoManifestResponse.fromJson;
+      _$VideoManifestResponseImpl.fromJson;
 
   @override
   Resolution? get resolution;
@@ -185,6 +187,6 @@ abstract class _VideoManifestResponse implements VideoManifestResponse {
   String? get stream;
   @override
   @JsonKey(ignore: true)
-  _$$_VideoManifestResponseCopyWith<_$_VideoManifestResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$VideoManifestResponseImplCopyWith<_$VideoManifestResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

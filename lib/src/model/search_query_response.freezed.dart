@@ -74,22 +74,22 @@ class _$SearchQueryResponseCopyWithImpl<$Res, $Val extends SearchQueryResponse>
 }
 
 /// @nodoc
-abstract class _$$_SearchQueryResponseCopyWith<$Res>
+abstract class _$$SearchQueryResponseImplCopyWith<$Res>
     implements $SearchQueryResponseCopyWith<$Res> {
-  factory _$$_SearchQueryResponseCopyWith(_$_SearchQueryResponse value,
-          $Res Function(_$_SearchQueryResponse) then) =
-      __$$_SearchQueryResponseCopyWithImpl<$Res>;
+  factory _$$SearchQueryResponseImplCopyWith(_$SearchQueryResponseImpl value,
+          $Res Function(_$SearchQueryResponseImpl) then) =
+      __$$SearchQueryResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? uuid, List<VideoDto>? content, DateTime? expiration});
 }
 
 /// @nodoc
-class __$$_SearchQueryResponseCopyWithImpl<$Res>
-    extends _$SearchQueryResponseCopyWithImpl<$Res, _$_SearchQueryResponse>
-    implements _$$_SearchQueryResponseCopyWith<$Res> {
-  __$$_SearchQueryResponseCopyWithImpl(_$_SearchQueryResponse _value,
-      $Res Function(_$_SearchQueryResponse) _then)
+class __$$SearchQueryResponseImplCopyWithImpl<$Res>
+    extends _$SearchQueryResponseCopyWithImpl<$Res, _$SearchQueryResponseImpl>
+    implements _$$SearchQueryResponseImplCopyWith<$Res> {
+  __$$SearchQueryResponseImplCopyWithImpl(_$SearchQueryResponseImpl _value,
+      $Res Function(_$SearchQueryResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_SearchQueryResponseCopyWithImpl<$Res>
     Object? content = freezed,
     Object? expiration = freezed,
   }) {
-    return _then(_$_SearchQueryResponse(
+    return _then(_$SearchQueryResponseImpl(
       uuid: freezed == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -118,13 +118,13 @@ class __$$_SearchQueryResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchQueryResponse implements _SearchQueryResponse {
-  const _$_SearchQueryResponse(
+class _$SearchQueryResponseImpl implements _SearchQueryResponse {
+  const _$SearchQueryResponseImpl(
       {this.uuid, final List<VideoDto>? content, this.expiration})
       : _content = content;
 
-  factory _$_SearchQueryResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchQueryResponseFromJson(json);
+  factory _$SearchQueryResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchQueryResponseImplFromJson(json);
 
   @override
   final String? uuid;
@@ -150,7 +150,7 @@ class _$_SearchQueryResponse implements _SearchQueryResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchQueryResponse &&
+            other is _$SearchQueryResponseImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             const DeepCollectionEquality().equals(other._content, _content) &&
             (identical(other.expiration, expiration) ||
@@ -165,13 +165,13 @@ class _$_SearchQueryResponse implements _SearchQueryResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchQueryResponseCopyWith<_$_SearchQueryResponse> get copyWith =>
-      __$$_SearchQueryResponseCopyWithImpl<_$_SearchQueryResponse>(
+  _$$SearchQueryResponseImplCopyWith<_$SearchQueryResponseImpl> get copyWith =>
+      __$$SearchQueryResponseImplCopyWithImpl<_$SearchQueryResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchQueryResponseToJson(
+    return _$$SearchQueryResponseImplToJson(
       this,
     );
   }
@@ -181,10 +181,10 @@ abstract class _SearchQueryResponse implements SearchQueryResponse {
   const factory _SearchQueryResponse(
       {final String? uuid,
       final List<VideoDto>? content,
-      final DateTime? expiration}) = _$_SearchQueryResponse;
+      final DateTime? expiration}) = _$SearchQueryResponseImpl;
 
   factory _SearchQueryResponse.fromJson(Map<String, dynamic> json) =
-      _$_SearchQueryResponse.fromJson;
+      _$SearchQueryResponseImpl.fromJson;
 
   @override
   String? get uuid;
@@ -194,6 +194,6 @@ abstract class _SearchQueryResponse implements SearchQueryResponse {
   DateTime? get expiration;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchQueryResponseCopyWith<_$_SearchQueryResponse> get copyWith =>
+  _$$SearchQueryResponseImplCopyWith<_$SearchQueryResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

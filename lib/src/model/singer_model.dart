@@ -1,48 +1,18 @@
-class SingerModel {
-  final int? id;
-  final String? name;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-//<editor-fold desc="Data Methods">
+part 'singer_model.freezed.dart';
 
-  const SingerModel({
-    this.id,
-    this.name,
-  });
+part 'singer_model.g.dart';
 
-  @override
-  bool operator ==(Object other) => identical(this, other) || (other is SingerModel && runtimeType == other.runtimeType && id == other.id && name == other.name);
-
-  @override
-  int get hashCode => id.hashCode ^ name.hashCode;
-
-  @override
-  String toString() {
-    return 'SingerModel{ id: $id, name: $name,}';
-  }
-
-  SingerModel copyWith({
+@freezed
+class SingerModel with _$SingerModel {
+  const factory SingerModel({
     int? id,
     String? name,
-  }) {
-    return SingerModel(
-      id: id ?? this.id,
-      name: name ?? this.name,
-    );
-  }
+  }) = _SingerModel;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-    };
-  }
-
-  factory SingerModel.fromMap( map) {
-    return SingerModel(
-      id: map['id'] as int?,
-      name: map['name'] as String?,
-    );
-  }
-
-//</editor-fold>
+  factory SingerModel.fromJson(Map<String, dynamic> json) =>
+      _$SingerModelFromJson(json);
 }
+

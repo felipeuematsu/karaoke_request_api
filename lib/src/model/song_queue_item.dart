@@ -1,63 +1,23 @@
 import 'package:karaoke_request_api/src/model/singer_model.dart';
 import 'package:karaoke_request_api/src/model/song_model.dart';
 
-class SongQueueItem {
-  final SongModel song;
-  final SingerModel singer;
-  final int? position, id;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-//<editor-fold desc="Data Methods">
+part 'song_queue_item.freezed.dart';
 
-  const SongQueueItem({
-    required this.song,
-    required this.singer,
-    this.position,
-    this.id,
-  });
+part 'song_queue_item.g.dart';
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) || (other is SongQueueItem && runtimeType == other.runtimeType && song == other.song && singer == other.singer && position == other.position && id == other.id);
-
-  @override
-  int get hashCode => song.hashCode ^ singer.hashCode ^ position.hashCode ^ id.hashCode;
-
-  @override
-  String toString() {
-    return 'SongQueueItem{ song: $song, singer: $singer, position: $position, id: $id,}';
-  }
-
-  SongQueueItem copyWith({
-    SongModel? song,
-    SingerModel? singer,
+@freezed
+class SongQueueItem with _$SongQueueItem {
+  const factory SongQueueItem({
+    required SongModel song,
+    required SingerModel singer,
     int? position,
     int? id,
-  }) {
-    return SongQueueItem(
-      song: song ?? this.song,
-      singer: singer ?? this.singer,
-      position: position ?? this.position,
-      id: id ?? this.id,
-    );
-  }
+  }) = _SongQueueItem;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'song': song,
-      'singer': singer,
-      'position': position,
-      'id': id,
-    };
-  }
-
-  factory SongQueueItem.fromMap(map) {
-    return SongQueueItem(
-      song: SongModel.fromMap(map['song']),
-      singer: SingerModel.fromMap(map['singer']),
-      position: map['position'] as int?,
-      id: map['id'] as int?,
-    );
-  }
-
-//</editor-fold>
+  factory SongQueueItem.fromJson(Map<String, dynamic> json) =>
+      _$SongQueueItemFromJson(json);
 }
+

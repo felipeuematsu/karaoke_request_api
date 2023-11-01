@@ -91,11 +91,11 @@ class _$ThumbnailsCopyWithImpl<$Res, $Val extends Thumbnails>
 }
 
 /// @nodoc
-abstract class _$$_ThumbnailsCopyWith<$Res>
+abstract class _$$ThumbnailsImplCopyWith<$Res>
     implements $ThumbnailsCopyWith<$Res> {
-  factory _$$_ThumbnailsCopyWith(
-          _$_Thumbnails value, $Res Function(_$_Thumbnails) then) =
-      __$$_ThumbnailsCopyWithImpl<$Res>;
+  factory _$$ThumbnailsImplCopyWith(
+          _$ThumbnailsImpl value, $Res Function(_$ThumbnailsImpl) then) =
+      __$$ThumbnailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_ThumbnailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ThumbnailsCopyWithImpl<$Res>
-    extends _$ThumbnailsCopyWithImpl<$Res, _$_Thumbnails>
-    implements _$$_ThumbnailsCopyWith<$Res> {
-  __$$_ThumbnailsCopyWithImpl(
-      _$_Thumbnails _value, $Res Function(_$_Thumbnails) _then)
+class __$$ThumbnailsImplCopyWithImpl<$Res>
+    extends _$ThumbnailsCopyWithImpl<$Res, _$ThumbnailsImpl>
+    implements _$$ThumbnailsImplCopyWith<$Res> {
+  __$$ThumbnailsImplCopyWithImpl(
+      _$ThumbnailsImpl _value, $Res Function(_$ThumbnailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_ThumbnailsCopyWithImpl<$Res>
     Object? standardResUrl = freezed,
     Object? maxResUrl = freezed,
   }) {
-    return _then(_$_Thumbnails(
+    return _then(_$ThumbnailsImpl(
       lowResUrl: freezed == lowResUrl
           ? _value.lowResUrl
           : lowResUrl // ignore: cast_nullable_to_non_nullable
@@ -150,16 +150,16 @@ class __$$_ThumbnailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Thumbnails implements _Thumbnails {
-  const _$_Thumbnails(
+class _$ThumbnailsImpl implements _Thumbnails {
+  const _$ThumbnailsImpl(
       {this.lowResUrl,
       this.mediumResUrl,
       this.highResUrl,
       this.standardResUrl,
       this.maxResUrl});
 
-  factory _$_Thumbnails.fromJson(Map<String, dynamic> json) =>
-      _$$_ThumbnailsFromJson(json);
+  factory _$ThumbnailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThumbnailsImplFromJson(json);
 
   @override
   final String? lowResUrl;
@@ -181,7 +181,7 @@ class _$_Thumbnails implements _Thumbnails {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Thumbnails &&
+            other is _$ThumbnailsImpl &&
             (identical(other.lowResUrl, lowResUrl) ||
                 other.lowResUrl == lowResUrl) &&
             (identical(other.mediumResUrl, mediumResUrl) ||
@@ -202,12 +202,12 @@ class _$_Thumbnails implements _Thumbnails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThumbnailsCopyWith<_$_Thumbnails> get copyWith =>
-      __$$_ThumbnailsCopyWithImpl<_$_Thumbnails>(this, _$identity);
+  _$$ThumbnailsImplCopyWith<_$ThumbnailsImpl> get copyWith =>
+      __$$ThumbnailsImplCopyWithImpl<_$ThumbnailsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ThumbnailsToJson(
+    return _$$ThumbnailsImplToJson(
       this,
     );
   }
@@ -219,10 +219,10 @@ abstract class _Thumbnails implements Thumbnails {
       final String? mediumResUrl,
       final String? highResUrl,
       final String? standardResUrl,
-      final String? maxResUrl}) = _$_Thumbnails;
+      final String? maxResUrl}) = _$ThumbnailsImpl;
 
   factory _Thumbnails.fromJson(Map<String, dynamic> json) =
-      _$_Thumbnails.fromJson;
+      _$ThumbnailsImpl.fromJson;
 
   @override
   String? get lowResUrl;
@@ -236,6 +236,6 @@ abstract class _Thumbnails implements Thumbnails {
   String? get maxResUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_ThumbnailsCopyWith<_$_Thumbnails> get copyWith =>
+  _$$ThumbnailsImplCopyWith<_$ThumbnailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

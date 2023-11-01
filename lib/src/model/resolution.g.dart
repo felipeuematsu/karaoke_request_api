@@ -6,13 +6,13 @@ part of 'resolution.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Resolution _$$_ResolutionFromJson(Map<String, dynamic> json) =>
-    _$_Resolution(
+_$ResolutionImpl _$$ResolutionImplFromJson(Map<String, dynamic> json) =>
+    _$ResolutionImpl(
       width: json['width'] as int?,
       height: json['height'] as int?,
     );
 
-Map<String, dynamic> _$$_ResolutionToJson(_$_Resolution instance) =>
+Map<String, dynamic> _$$ResolutionImplToJson(_$ResolutionImpl instance) =>
     <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

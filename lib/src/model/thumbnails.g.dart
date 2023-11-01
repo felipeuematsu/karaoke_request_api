@@ -6,8 +6,8 @@ part of 'thumbnails.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Thumbnails _$$_ThumbnailsFromJson(Map<String, dynamic> json) =>
-    _$_Thumbnails(
+_$ThumbnailsImpl _$$ThumbnailsImplFromJson(Map<String, dynamic> json) =>
+    _$ThumbnailsImpl(
       lowResUrl: json['lowResUrl'] as String?,
       mediumResUrl: json['mediumResUrl'] as String?,
       highResUrl: json['highResUrl'] as String?,
@@ -15,7 +15,7 @@ _$_Thumbnails _$$_ThumbnailsFromJson(Map<String, dynamic> json) =>
       maxResUrl: json['maxResUrl'] as String?,
     );
 
-Map<String, dynamic> _$$_ThumbnailsToJson(_$_Thumbnails instance) =>
+Map<String, dynamic> _$$ThumbnailsImplToJson(_$ThumbnailsImpl instance) =>
     <String, dynamic>{
       'lowResUrl': instance.lowResUrl,
       'mediumResUrl': instance.mediumResUrl,

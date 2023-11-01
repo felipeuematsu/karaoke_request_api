@@ -6,7 +6,8 @@ part of 'video_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VideoDto _$$_VideoDtoFromJson(Map<String, dynamic> json) => _$_VideoDto(
+_$VideoDtoImpl _$$VideoDtoImplFromJson(Map<String, dynamic> json) =>
+    _$VideoDtoImpl(
       id: json['id'] as String?,
       title: json['title'] as String?,
       author: json['author'] as String?,
@@ -23,7 +24,7 @@ _$_VideoDto _$$_VideoDtoFromJson(Map<String, dynamic> json) => _$_VideoDto(
           : DateTime.parse(json['uploadDate'] as String),
     );
 
-Map<String, dynamic> _$$_VideoDtoToJson(_$_VideoDto instance) =>
+Map<String, dynamic> _$$VideoDtoImplToJson(_$VideoDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

@@ -6,17 +6,17 @@ part of 'video_manifest_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VideoManifestResponse _$$_VideoManifestResponseFromJson(
+_$VideoManifestResponseImpl _$$VideoManifestResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_VideoManifestResponse(
+    _$VideoManifestResponseImpl(
       resolution: json['resolution'] == null
           ? null
           : Resolution.fromJson(json['resolution'] as Map<String, dynamic>),
       stream: json['stream'] as String?,
     );
 
-Map<String, dynamic> _$$_VideoManifestResponseToJson(
-        _$_VideoManifestResponse instance) =>
+Map<String, dynamic> _$$VideoManifestResponseImplToJson(
+        _$VideoManifestResponseImpl instance) =>
     <String, dynamic>{
       'resolution': instance.resolution,
       'stream': instance.stream,
