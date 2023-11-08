@@ -203,4 +203,8 @@ class KaraokeApiService {
   Future<void> setDownloadsPath(String path) async {
     await _dio.post('${Endpoints.kPath}/download', data: path);
   }
+
+  String singerImageUrl(int singerId) {
+    return '${configuration.baseUrl}:${configuration.port}/singer/$singerId/image';
+  }
 }
