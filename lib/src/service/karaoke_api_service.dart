@@ -181,12 +181,12 @@ class KaraokeApiService {
     return '${configuration.baseUrl}:${configuration.port}/singer/$singerId/image';
   }
 
-  Future<SearchQueryResponse> youtubeSearch(String query, String? uuid) async {
-    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'query': query, if (uuid != null) 'uuid': uuid});
+  Future<SearchQueryResponse> youtubeSearch(String? query, String? uuid) async {
+    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {if (query != null) 'query': query, if (uuid != null) 'uuid': uuid});
     return SearchQueryResponse.fromJson(response.data);
   }
 
-  Future<VideoManifestResponse> youtubeManifest(int id) async {
+  Future<VideoManifestResponse> youtubeManifest(String id) async {
     final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'id': id});
     return VideoManifestResponse.fromJson(response.data);
   }
