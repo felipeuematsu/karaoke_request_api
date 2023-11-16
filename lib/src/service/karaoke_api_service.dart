@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:karaoke_request_api/karaoke_request_api.dart';
 import 'package:karaoke_request_api/src/configuration/karaoke_api_configuration.dart';
 import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
 import 'package:karaoke_request_api/src/model/playlist_model.dart';
@@ -12,16 +13,14 @@ import 'package:karaoke_request_api/src/model/song_search_response.dart';
 import 'package:karaoke_request_api/src/model/youtube_song_dto.dart';
 import 'package:karaoke_request_api/src/service/endpoints.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 class KaraokeApiService {
   KaraokeApiService({required this.configuration});
 
   final KaraokeAPIConfiguration configuration;
 
-  late final _dio = Dio(BaseOptions(
-      baseUrl: configuration.port != null
-          ? '${configuration.baseUrl}:${configuration.port}'
-          : configuration.baseUrl))
+  late final _dio = Dio(BaseOptions(baseUrl: configuration.port != null ? '${configuration.baseUrl}:${configuration.port}' : configuration.baseUrl))
     ..interceptors.add(PrettyDioLogger(
       requestHeader: kDebugMode,
       requestBody: kDebugMode,
@@ -32,29 +31,18 @@ class KaraokeApiService {
       maxWidth: 90,
     ));
 
-  Future<SongSearchResponse> search(
-      String? title, String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch, queryParameters: {
-      if (title != null) 'title': title,
-      if (artist != null) 'artist': artist,
-      'page': page,
-      'pageCount': pageCount
-    });
+  Future<SongSearchResponse> search(String? title, String? artist, int page, int pageCount) async {
+    final response = await _dio.get(Endpoints.kSearch,
+        queryParameters: {if (title != null) 'title': title, if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
     return SongSearchResponse.fromJson(response.data);
   }
 
-  Future<SongSearchResponse> searchArtist(
-      String? artist, int page, int pageCount) async {
-    final response = await _dio.get(Endpoints.kSearch, queryParameters: {
-      if (artist != null) 'artist': artist,
-      'page': page,
-      'pageCount': pageCount
-    });
+  Future<SongSearchResponse> searchArtist(String? artist, int page, int pageCount) async {
+    final response = await _dio.get(Endpoints.kSearch, queryParameters: {if (artist != null) 'artist': artist, 'page': page, 'pageCount': pageCount});
     return SongSearchResponse.fromJson(response.data);
   }
 
-  Future<void> addToQueue(int songId, String singerName,
-      {int? keyChange}) async {
+  Future<void> addToQueue(int songId, String singerName, {int? keyChange}) async {
     await _dio.post(Endpoints.kQueue, data: {
       'songId': songId,
       'singerName': singerName,
@@ -147,8 +135,7 @@ class KaraokeApiService {
   }
 
   Future<SongModel> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
-    final response =
-        await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toJson());
+    final response = await _dio.post(Endpoints.kYoutubeSong, data: youtubeSongDto.toJson());
     return SongModel.fromJson(response.data);
   }
 
@@ -192,10 +179,8 @@ class KaraokeApiService {
     return list.map((e) => RepositoryPathModel.fromJson(e)).toList();
   }
 
-  Future<List<RepositoryPathModel>> setPaths(
-      List<RepositoryPathModel> paths) async {
-    final res = await _dio.put(Endpoints.kPath,
-        data: paths.map((e) => e.toJson()).toList());
+  Future<List<RepositoryPathModel>> setPaths(List<RepositoryPathModel> paths) async {
+    final res = await _dio.put(Endpoints.kPath, data: paths.map((e) => e.toJson()).toList());
     final list = res.data as List;
     return list.map((e) => RepositoryPathModel.fromJson(e)).toList();
   }
@@ -207,4 +192,15 @@ class KaraokeApiService {
   String singerImageUrl(int singerId) {
     return '${configuration.baseUrl}:${configuration.port}/singer/$singerId/image';
   }
+
+  Future<SearchQueryResponse> youtubeSearch(String query) async {
+    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'query': query});
+    return SearchQueryResponse.fromJson(response.data);
+  }
+
+  Future<VideoManifestResponse> youtubeManifest(int id) async {
+    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'id': id});
+    return VideoManifestResponse.fromJson(response.data);
+  }
+
 }
