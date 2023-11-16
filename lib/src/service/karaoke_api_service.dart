@@ -1,19 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:karaoke_request_api/karaoke_request_api.dart';
-import 'package:karaoke_request_api/src/configuration/karaoke_api_configuration.dart';
-import 'package:karaoke_request_api/src/model/now_playing_song_model.dart';
-import 'package:karaoke_request_api/src/model/playlist_model.dart';
-import 'package:karaoke_request_api/src/model/repository_path_model.dart';
-import 'package:karaoke_request_api/src/model/simple_playlist_model.dart';
-import 'package:karaoke_request_api/src/model/singer_model.dart';
-import 'package:karaoke_request_api/src/model/song_model.dart';
-import 'package:karaoke_request_api/src/model/song_queue_item.dart';
-import 'package:karaoke_request_api/src/model/song_search_response.dart';
-import 'package:karaoke_request_api/src/model/youtube_song_dto.dart';
-import 'package:karaoke_request_api/src/service/endpoints.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 class KaraokeApiService {
   KaraokeApiService({required this.configuration});
@@ -193,8 +181,8 @@ class KaraokeApiService {
     return '${configuration.baseUrl}:${configuration.port}/singer/$singerId/image';
   }
 
-  Future<SearchQueryResponse> youtubeSearch(String query) async {
-    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'query': query});
+  Future<SearchQueryResponse> youtubeSearch(String query, String? uuid) async {
+    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'query': query, if (uuid != null) 'uuid': uuid});
     return SearchQueryResponse.fromJson(response.data);
   }
 
