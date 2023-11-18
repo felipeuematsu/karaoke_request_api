@@ -107,7 +107,7 @@ class __$$SingerModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SingerModelImpl with DiagnosticableTreeMixin implements _SingerModel {
+class _$SingerModelImpl implements _SingerModel {
   const _$SingerModelImpl({this.id, this.name});
 
   factory _$SingerModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -119,17 +119,8 @@ class _$SingerModelImpl with DiagnosticableTreeMixin implements _SingerModel {
   final String? name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SingerModel(id: $id, name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SingerModel'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override

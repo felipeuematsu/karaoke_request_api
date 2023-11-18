@@ -1,7 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:karaoke_request_api/karaoke_request_api.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+const bool kProfileMode = bool.fromEnvironment('dart.vm.profile');
+
+const bool kReleaseMode = bool.fromEnvironment('dart.vm.product');
+const bool kDebugMode = !kReleaseMode && !kProfileMode;
 
 class KaraokeApiService {
   KaraokeApiService({required this.configuration});
@@ -190,5 +194,4 @@ class KaraokeApiService {
     final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'id': id});
     return VideoManifestResponse.fromJson(response.data);
   }
-
 }

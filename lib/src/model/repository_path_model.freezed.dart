@@ -129,9 +129,7 @@ class __$$RepositoryPathModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RepositoryPathModelImpl
-    with DiagnosticableTreeMixin
-    implements _RepositoryPathModel {
+class _$RepositoryPathModelImpl implements _RepositoryPathModel {
   const _$RepositoryPathModelImpl(
       {required this.path,
       required this.regex,
@@ -151,19 +149,8 @@ class _$RepositoryPathModelImpl
   final int artistPos;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'RepositoryPathModel(path: $path, regex: $regex, titlePos: $titlePos, artistPos: $artistPos)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RepositoryPathModel'))
-      ..add(DiagnosticsProperty('path', path))
-      ..add(DiagnosticsProperty('regex', regex))
-      ..add(DiagnosticsProperty('titlePos', titlePos))
-      ..add(DiagnosticsProperty('artistPos', artistPos));
   }
 
   @override

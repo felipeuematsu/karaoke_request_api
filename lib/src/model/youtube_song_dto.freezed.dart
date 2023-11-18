@@ -150,9 +150,7 @@ class __$$YoutubeSongDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$YoutubeSongDtoImpl
-    with DiagnosticableTreeMixin
-    implements _YoutubeSongDto {
+class _$YoutubeSongDtoImpl implements _YoutubeSongDto {
   const _$YoutubeSongDtoImpl(
       {this.url, this.title, this.artist, this.thumbnail, this.duration});
 
@@ -171,20 +169,8 @@ class _$YoutubeSongDtoImpl
   final int? duration;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'YoutubeSongDto(url: $url, title: $title, artist: $artist, thumbnail: $thumbnail, duration: $duration)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'YoutubeSongDto'))
-      ..add(DiagnosticsProperty('url', url))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('artist', artist))
-      ..add(DiagnosticsProperty('thumbnail', thumbnail))
-      ..add(DiagnosticsProperty('duration', duration));
   }
 
   @override

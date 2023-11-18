@@ -129,9 +129,7 @@ class __$$SimplePlaylistModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SimplePlaylistModelImpl
-    with DiagnosticableTreeMixin
-    implements _SimplePlaylistModel {
+class _$SimplePlaylistModelImpl implements _SimplePlaylistModel {
   const _$SimplePlaylistModelImpl(
       {this.id, this.name, this.imageUrl, this.description});
 
@@ -148,19 +146,8 @@ class _$SimplePlaylistModelImpl
   final String? description;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SimplePlaylistModel(id: $id, name: $name, imageUrl: $imageUrl, description: $description)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SimplePlaylistModel'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('description', description));
   }
 
   @override

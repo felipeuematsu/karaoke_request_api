@@ -1,6 +1,6 @@
 name: karaoke_request_api
 description: The API for the Karaoke Request Client
-version: 1.8.2
+version: 1.8.3
 publish_to: https://dart.pkg.jetbrains.space/flup/p/main/flup/
 
 environment:
@@ -13,14 +13,10 @@ dependencies:
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   youtube_explode_dart: ^2.0.2
-  flutter:
-    sdk: flutter
 
 dev_dependencies:
   build_runner: ^2.4.6
   freezed: ^2.4.2
   json_serializable: ^6.7.1
-  flutter_test:
-    sdk: flutter
   flutter_lints: ^2.0.0
 flutter:

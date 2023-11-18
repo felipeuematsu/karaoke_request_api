@@ -167,9 +167,7 @@ class __$$NowPlayingSongModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NowPlayingSongModelImpl
-    with DiagnosticableTreeMixin
-    implements _NowPlayingSongModel {
+class _$NowPlayingSongModelImpl implements _NowPlayingSongModel {
   const _$NowPlayingSongModelImpl(
       {required this.song,
       required this.songId,
@@ -192,20 +190,8 @@ class _$NowPlayingSongModelImpl
   final bool? isPlaying;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NowPlayingSongModel(song: $song, songId: $songId, position: $position, singer: $singer, isPlaying: $isPlaying)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NowPlayingSongModel'))
-      ..add(DiagnosticsProperty('song', song))
-      ..add(DiagnosticsProperty('songId', songId))
-      ..add(DiagnosticsProperty('position', position))
-      ..add(DiagnosticsProperty('singer', singer))
-      ..add(DiagnosticsProperty('isPlaying', isPlaying));
   }
 
   @override

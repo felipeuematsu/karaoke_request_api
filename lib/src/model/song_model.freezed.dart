@@ -214,7 +214,7 @@ class __$$SongModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SongModelImpl with DiagnosticableTreeMixin implements _SongModel {
+class _$SongModelImpl implements _SongModel {
   const _$SongModelImpl(
       {this.songId,
       this.title,
@@ -252,25 +252,8 @@ class _$SongModelImpl with DiagnosticableTreeMixin implements _SongModel {
   final String? imageUrl;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SongModel(songId: $songId, title: $title, artist: $artist, path: $path, filename: $filename, searchString: $searchString, duration: $duration, plays: $plays, lastPlayed: $lastPlayed, imageUrl: $imageUrl)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SongModel'))
-      ..add(DiagnosticsProperty('songId', songId))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('artist', artist))
-      ..add(DiagnosticsProperty('path', path))
-      ..add(DiagnosticsProperty('filename', filename))
-      ..add(DiagnosticsProperty('searchString', searchString))
-      ..add(DiagnosticsProperty('duration', duration))
-      ..add(DiagnosticsProperty('plays', plays))
-      ..add(DiagnosticsProperty('lastPlayed', lastPlayed))
-      ..add(DiagnosticsProperty('imageUrl', imageUrl));
   }
 
   @override

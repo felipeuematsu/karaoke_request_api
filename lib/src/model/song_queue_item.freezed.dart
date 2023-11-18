@@ -153,9 +153,7 @@ class __$$SongQueueItemImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SongQueueItemImpl
-    with DiagnosticableTreeMixin
-    implements _SongQueueItem {
+class _$SongQueueItemImpl implements _SongQueueItem {
   const _$SongQueueItemImpl(
       {required this.song, required this.singer, this.position, this.id});
 
@@ -172,19 +170,8 @@ class _$SongQueueItemImpl
   final int? id;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SongQueueItem(song: $song, singer: $singer, position: $position, id: $id)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SongQueueItem'))
-      ..add(DiagnosticsProperty('song', song))
-      ..add(DiagnosticsProperty('singer', singer))
-      ..add(DiagnosticsProperty('position', position))
-      ..add(DiagnosticsProperty('id', id));
   }
 
   @override

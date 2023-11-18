@@ -1,6 +1,5 @@
 import 'package:karaoke_request_api/src/model/song_model.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'song_search_response.freezed.dart';

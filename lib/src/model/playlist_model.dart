@@ -1,6 +1,5 @@
 import 'package:karaoke_request_api/karaoke_request_api.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'playlist_model.freezed.dart';

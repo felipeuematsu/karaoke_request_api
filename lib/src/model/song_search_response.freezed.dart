@@ -150,9 +150,7 @@ class __$$SongSearchResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SongSearchResponseImpl
-    with DiagnosticableTreeMixin
-    implements _SongSearchResponse {
+class _$SongSearchResponseImpl implements _SongSearchResponse {
   const _$SongSearchResponseImpl(
       {required this.page,
       required this.perPage,
@@ -183,20 +181,8 @@ class _$SongSearchResponseImpl
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SongSearchResponse(page: $page, perPage: $perPage, total: $total, totalPages: $totalPages, data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SongSearchResponse'))
-      ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('perPage', perPage))
-      ..add(DiagnosticsProperty('total', total))
-      ..add(DiagnosticsProperty('totalPages', totalPages))
-      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
