@@ -145,7 +145,7 @@ class KaraokeApiService {
 
   Future<bool> health() async {
     try {
-      final response = await _dio.get(Endpoints.kHealth);
+      final response = await _dio.get(Endpoints.kHealth, options: Options(receiveTimeout: Duration(seconds: 1), sendTimeout: Duration(seconds: 1)));
       return response.statusCode == 200;
     } on DioException {
       return false;

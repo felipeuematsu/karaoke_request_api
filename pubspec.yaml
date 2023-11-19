@@ -1,6 +1,6 @@
 name: karaoke_request_api
 description: The API for the Karaoke Request Client
-version: 1.8.5
+version: 1.8.6
 publish_to: https://dart.pkg.jetbrains.space/flup/p/main/flup/
 
 environment:
