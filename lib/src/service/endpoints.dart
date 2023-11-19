@@ -19,5 +19,6 @@ class Endpoints {
   static const String kVolume = '/volume';
   static const String kHealth = '/health';
   static const String kPath = '/path';
-  static const String kYoutubeSearch = '/song/youtube';
+  static const String kYoutubeSearch = '/youtube/search';
+  static const String kYoutubeManifest = '/youtube/manifest';
 }

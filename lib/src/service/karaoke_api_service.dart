@@ -191,7 +191,7 @@ class KaraokeApiService {
   }
 
   Future<VideoManifestResponse> youtubeManifest(String id) async {
-    final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {'id': id});
+    final response = await _dio.get(Endpoints.kYoutubeManifest, queryParameters: {'id': id});
     return VideoManifestResponse.fromJson(response.data);
   }
 }
