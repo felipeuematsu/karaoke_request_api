@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:karaoke_request_api/karaoke_request_api.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -187,7 +189,8 @@ class KaraokeApiService {
 
   Future<SearchQueryResponse> youtubeSearch(String? query, String? uuid) async {
     final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {if (query != null) 'query': query, if (uuid != null) 'uuid': uuid});
-    return SearchQueryResponse.fromJson(response.data);
+    final decoded = utf8.decode(response.data);
+    return SearchQueryResponse.fromJson(jsonDecode(decoded));
   }
 
   Future<VideoManifestResponse> youtubeManifest(String id) async {
