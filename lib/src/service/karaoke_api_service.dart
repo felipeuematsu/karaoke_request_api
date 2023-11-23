@@ -189,7 +189,8 @@ class KaraokeApiService {
 
   Future<SearchQueryResponse> youtubeSearch(String? query, String? uuid) async {
     final response = await _dio.get(Endpoints.kYoutubeSearch, queryParameters: {if (query != null) 'query': query, if (uuid != null) 'uuid': uuid});
-    final decoded = utf8.decode(response.data);
+    final dataBytes = utf8.encode(jsonEncode(response.data));
+    final decoded = utf8.decode(dataBytes);
     return SearchQueryResponse.fromJson(jsonDecode(decoded));
   }
 
