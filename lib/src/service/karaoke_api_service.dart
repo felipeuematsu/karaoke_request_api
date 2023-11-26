@@ -116,15 +116,15 @@ class KaraokeApiService {
     return singers.map((map) => SingerModel.fromJson(map)).toList();
   }
 
-  Future<void> editSinger(SingerModel singer, File? image) async {
+  Future<void> editSinger(SingerModel singer, MultipartFile? image) async {
     final data = FormData()..fields.add(MapEntry('dto', jsonEncode(singer.toJson())));
-    if (image != null) data.files.add(MapEntry('image', await MultipartFile.fromFile(image.path)));
+    if (image != null) data.files.add(MapEntry('image', image));
     await _dio.put(Endpoints.kSinger, data: data);
   }
 
-  Future<void> addSinger(String name, File? image) async {
+  Future<void> addSinger(String name, MultipartFile? image) async {
     final data = FormData()..fields.add(MapEntry('dto', jsonEncode({'name': name})));
-    if (image != null) data.files.add(MapEntry('image', await MultipartFile.fromFile(image.path)));
+    if (image != null) data.files.add(MapEntry('image', image));
     await _dio.post(Endpoints.kSinger, data: data);
   }
 
