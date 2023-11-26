@@ -9,6 +9,7 @@ class SingerModel with _$SingerModel {
   const factory SingerModel({
     int? id,
     String? name,
+    bool? active,
   }) = _SingerModel;
 
   factory SingerModel.fromJson(Map<String, dynamic> json) =>

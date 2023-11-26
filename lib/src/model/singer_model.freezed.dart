@@ -22,6 +22,7 @@ SingerModel _$SingerModelFromJson(Map<String, dynamic> json) {
 mixin _$SingerModel {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  bool? get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $SingerModelCopyWith<$Res> {
           SingerModel value, $Res Function(SingerModel) then) =
       _$SingerModelCopyWithImpl<$Res, SingerModel>;
   @useResult
-  $Res call({int? id, String? name});
+  $Res call({int? id, String? name, bool? active});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$SingerModelCopyWithImpl<$Res, $Val extends SingerModel>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? active = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -63,6 +65,10 @@ class _$SingerModelCopyWithImpl<$Res, $Val extends SingerModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$SingerModelImplCopyWith<$Res>
       __$$SingerModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? name});
+  $Res call({int? id, String? name, bool? active});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$SingerModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? active = freezed,
   }) {
     return _then(_$SingerModelImpl(
       id: freezed == id
@@ -101,6 +108,10 @@ class __$$SingerModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -108,7 +119,7 @@ class __$$SingerModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SingerModelImpl implements _SingerModel {
-  const _$SingerModelImpl({this.id, this.name});
+  const _$SingerModelImpl({this.id, this.name, this.active});
 
   factory _$SingerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SingerModelImplFromJson(json);
@@ -117,10 +128,12 @@ class _$SingerModelImpl implements _SingerModel {
   final int? id;
   @override
   final String? name;
+  @override
+  final bool? active;
 
   @override
   String toString() {
-    return 'SingerModel(id: $id, name: $name)';
+    return 'SingerModel(id: $id, name: $name, active: $active)';
   }
 
   @override
@@ -129,12 +142,13 @@ class _$SingerModelImpl implements _SingerModel {
         (other.runtimeType == runtimeType &&
             other is _$SingerModelImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.active, active) || other.active == active));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, active);
 
   @JsonKey(ignore: true)
   @override
@@ -151,8 +165,10 @@ class _$SingerModelImpl implements _SingerModel {
 }
 
 abstract class _SingerModel implements SingerModel {
-  const factory _SingerModel({final int? id, final String? name}) =
-      _$SingerModelImpl;
+  const factory _SingerModel(
+      {final int? id,
+      final String? name,
+      final bool? active}) = _$SingerModelImpl;
 
   factory _SingerModel.fromJson(Map<String, dynamic> json) =
       _$SingerModelImpl.fromJson;
@@ -161,6 +177,8 @@ abstract class _SingerModel implements SingerModel {
   int? get id;
   @override
   String? get name;
+  @override
+  bool? get active;
   @override
   @JsonKey(ignore: true)
   _$$SingerModelImplCopyWith<_$SingerModelImpl> get copyWith =>
