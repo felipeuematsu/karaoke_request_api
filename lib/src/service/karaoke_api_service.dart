@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:karaoke_request_api/karaoke_request_api.dart';
@@ -115,17 +116,16 @@ class KaraokeApiService {
     return singers.map((map) => SingerModel.fromJson(map)).toList();
   }
 
-  Future<void> editSinger(SingerModel singer) async {
-    await _dio.put(Endpoints.kSinger, data: {
-      'id': singer.id,
-      'name': singer.name,
-    });
+  Future<void> editSinger(SingerModel singer, File? image) async {
+    final data = FormData()..fields.add(MapEntry('dto', jsonEncode(singer.toJson())));
+    if (image != null) data.files.add(MapEntry('image', await MultipartFile.fromFile(image.path)));
+    await _dio.put(Endpoints.kSinger, data: data);
   }
 
-  Future<void> addSinger(String name) async {
-    await _dio.post(Endpoints.kSinger, data: {
-      'name': name,
-    });
+  Future<void> addSinger(String name, File? image) async {
+    final data = FormData()..fields.add(MapEntry('dto', jsonEncode({'name': name})));
+    if (image != null) data.files.add(MapEntry('image', await MultipartFile.fromFile(image.path)));
+    await _dio.post(Endpoints.kSinger, data: data);
   }
 
   Future<SongModel> sendYoutubeSong(YoutubeSongDto youtubeSongDto) async {
