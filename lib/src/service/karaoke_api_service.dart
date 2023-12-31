@@ -145,6 +145,11 @@ class KaraokeApiService {
     await _dio.post(Endpoints.kVolume, data: {'volume': value});
   }
 
+  Future<int> getVolume(int value) async {
+    final res = await _dio.get(Endpoints.kVolume);
+    return res.data as int;
+  }
+
   Future<bool> health() async {
     try {
       final response = await _dio.get(Endpoints.kHealth, options: Options(receiveTimeout: Duration(seconds: 1), sendTimeout: Duration(seconds: 1)));
