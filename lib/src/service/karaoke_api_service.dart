@@ -145,7 +145,7 @@ class KaraokeApiService {
     await _dio.post(Endpoints.kVolume, data: {'volume': value});
   }
 
-  Future<int> getVolume(int value) async {
+  Future<int> getVolume() async {
     final res = await _dio.get(Endpoints.kVolume);
     return res.data as int;
   }
