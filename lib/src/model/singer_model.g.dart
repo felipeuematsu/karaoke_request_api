@@ -6,14 +6,13 @@ part of 'singer_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SingerModelImpl _$$SingerModelImplFromJson(Map<String, dynamic> json) =>
-    _$SingerModelImpl(
-      id: json['id'] as int?,
-      name: json['name'] as String?,
-      active: json['active'] as bool?,
-    );
+_SingerModel _$SingerModelFromJson(Map<String, dynamic> json) => _SingerModel(
+  id: (json['id'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  active: json['active'] as bool?,
+);
 
-Map<String, dynamic> _$$SingerModelImplToJson(_$SingerModelImpl instance) =>
+Map<String, dynamic> _$SingerModelToJson(_SingerModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

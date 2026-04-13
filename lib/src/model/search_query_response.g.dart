@@ -6,9 +6,8 @@ part of 'search_query_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchQueryResponseImpl _$$SearchQueryResponseImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SearchQueryResponseImpl(
+_SearchQueryResponse _$SearchQueryResponseFromJson(Map<String, dynamic> json) =>
+    _SearchQueryResponse(
       uuid: json['uuid'] as String?,
       content: (json['content'] as List<dynamic>?)
           ?.map((e) => VideoDto.fromJson(e as Map<String, dynamic>))
@@ -18,10 +17,10 @@ _$SearchQueryResponseImpl _$$SearchQueryResponseImplFromJson(
           : DateTime.parse(json['expiration'] as String),
     );
 
-Map<String, dynamic> _$$SearchQueryResponseImplToJson(
-        _$SearchQueryResponseImpl instance) =>
-    <String, dynamic>{
-      'uuid': instance.uuid,
-      'content': instance.content,
-      'expiration': instance.expiration?.toIso8601String(),
-    };
+Map<String, dynamic> _$SearchQueryResponseToJson(
+  _SearchQueryResponse instance,
+) => <String, dynamic>{
+  'uuid': instance.uuid,
+  'content': instance.content,
+  'expiration': instance.expiration?.toIso8601String(),
+};

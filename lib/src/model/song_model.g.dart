@@ -6,23 +6,22 @@ part of 'song_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SongModelImpl _$$SongModelImplFromJson(Map<String, dynamic> json) =>
-    _$SongModelImpl(
-      songId: json['songId'] as int?,
-      title: json['title'] as String?,
-      artist: json['artist'] as String?,
-      path: json['path'] as String?,
-      filename: json['filename'] as String?,
-      searchString: json['searchString'] as String?,
-      duration: json['duration'] as int?,
-      plays: json['plays'] as int?,
-      lastPlayed: json['lastPlayed'] == null
-          ? null
-          : DateTime.parse(json['lastPlayed'] as String),
-      imageUrl: json['imageUrl'] as String?,
-    );
+_SongModel _$SongModelFromJson(Map<String, dynamic> json) => _SongModel(
+  songId: (json['songId'] as num?)?.toInt(),
+  title: json['title'] as String?,
+  artist: json['artist'] as String?,
+  path: json['path'] as String?,
+  filename: json['filename'] as String?,
+  searchString: json['searchString'] as String?,
+  duration: (json['duration'] as num?)?.toInt(),
+  plays: (json['plays'] as num?)?.toInt(),
+  lastPlayed: json['lastPlayed'] == null
+      ? null
+      : DateTime.parse(json['lastPlayed'] as String),
+  imageUrl: json['imageUrl'] as String?,
+);
 
-Map<String, dynamic> _$$SongModelImplToJson(_$SongModelImpl instance) =>
+Map<String, dynamic> _$SongModelToJson(_SongModel instance) =>
     <String, dynamic>{
       'songId': instance.songId,
       'title': instance.title,

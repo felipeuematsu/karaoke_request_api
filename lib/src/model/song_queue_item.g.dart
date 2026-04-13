@@ -6,15 +6,15 @@ part of 'song_queue_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SongQueueItemImpl _$$SongQueueItemImplFromJson(Map<String, dynamic> json) =>
-    _$SongQueueItemImpl(
+_SongQueueItem _$SongQueueItemFromJson(Map<String, dynamic> json) =>
+    _SongQueueItem(
       song: SongModel.fromJson(json['song'] as Map<String, dynamic>),
       singer: SingerModel.fromJson(json['singer'] as Map<String, dynamic>),
-      position: json['position'] as int?,
-      id: json['id'] as int?,
+      position: (json['position'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$SongQueueItemImplToJson(_$SongQueueItemImpl instance) =>
+Map<String, dynamic> _$SongQueueItemToJson(_SongQueueItem instance) =>
     <String, dynamic>{
       'song': instance.song,
       'singer': instance.singer,

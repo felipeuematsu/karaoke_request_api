@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,160 +9,272 @@ part of 'resolution.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-Resolution _$ResolutionFromJson(Map<String, dynamic> json) {
-  return _Resolution.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Resolution {
-  int? get width => throw _privateConstructorUsedError;
-  int? get height => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ResolutionCopyWith<Resolution> get copyWith =>
-      throw _privateConstructorUsedError;
+ int? get width; int? get height;
+/// Create a copy of Resolution
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ResolutionCopyWith<Resolution> get copyWith => _$ResolutionCopyWithImpl<Resolution>(this as Resolution, _$identity);
+
+  /// Serializes this Resolution to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Resolution&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,width,height);
+
+@override
+String toString() {
+  return 'Resolution(width: $width, height: $height)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ResolutionCopyWith<$Res> {
-  factory $ResolutionCopyWith(
-          Resolution value, $Res Function(Resolution) then) =
-      _$ResolutionCopyWithImpl<$Res, Resolution>;
-  @useResult
-  $Res call({int? width, int? height});
-}
+abstract mixin class $ResolutionCopyWith<$Res>  {
+  factory $ResolutionCopyWith(Resolution value, $Res Function(Resolution) _then) = _$ResolutionCopyWithImpl;
+@useResult
+$Res call({
+ int? width, int? height
+});
 
+
+
+
+}
 /// @nodoc
-class _$ResolutionCopyWithImpl<$Res, $Val extends Resolution>
+class _$ResolutionCopyWithImpl<$Res>
     implements $ResolutionCopyWith<$Res> {
-  _$ResolutionCopyWithImpl(this._value, this._then);
+  _$ResolutionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final Resolution _self;
+  final $Res Function(Resolution) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = freezed,
-    Object? height = freezed,
-  }) {
-    return _then(_value.copyWith(
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
+/// Create a copy of Resolution
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? width = freezed,Object? height = freezed,}) {
+  return _then(_self.copyWith(
+width: freezed == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
+as int?,height: freezed == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ResolutionImplCopyWith<$Res>
-    implements $ResolutionCopyWith<$Res> {
-  factory _$$ResolutionImplCopyWith(
-          _$ResolutionImpl value, $Res Function(_$ResolutionImpl) then) =
-      __$$ResolutionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int? width, int? height});
 }
 
-/// @nodoc
-class __$$ResolutionImplCopyWithImpl<$Res>
-    extends _$ResolutionCopyWithImpl<$Res, _$ResolutionImpl>
-    implements _$$ResolutionImplCopyWith<$Res> {
-  __$$ResolutionImplCopyWithImpl(
-      _$ResolutionImpl _value, $Res Function(_$ResolutionImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = freezed,
-    Object? height = freezed,
-  }) {
-    return _then(_$ResolutionImpl(
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [Resolution].
+extension ResolutionPatterns on Resolution {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Resolution value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Resolution() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Resolution value)  $default,){
+final _that = this;
+switch (_that) {
+case _Resolution():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Resolution value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Resolution() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? width,  int? height)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Resolution() when $default != null:
+return $default(_that.width,_that.height);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? width,  int? height)  $default,) {final _that = this;
+switch (_that) {
+case _Resolution():
+return $default(_that.width,_that.height);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? width,  int? height)?  $default,) {final _that = this;
+switch (_that) {
+case _Resolution() when $default != null:
+return $default(_that.width,_that.height);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ResolutionImpl implements _Resolution {
-  const _$ResolutionImpl({this.width, this.height});
 
-  factory _$ResolutionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResolutionImplFromJson(json);
+class _Resolution implements Resolution {
+  const _Resolution({this.width, this.height});
+  factory _Resolution.fromJson(Map<String, dynamic> json) => _$ResolutionFromJson(json);
 
-  @override
-  final int? width;
-  @override
-  final int? height;
+@override final  int? width;
+@override final  int? height;
 
-  @override
-  String toString() {
-    return 'Resolution(width: $width, height: $height)';
-  }
+/// Create a copy of Resolution
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ResolutionCopyWith<_Resolution> get copyWith => __$ResolutionCopyWithImpl<_Resolution>(this, _$identity);
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ResolutionImpl &&
-            (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, width, height);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ResolutionImplCopyWith<_$ResolutionImpl> get copyWith =>
-      __$$ResolutionImplCopyWithImpl<_$ResolutionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ResolutionImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ResolutionToJson(this, );
 }
 
-abstract class _Resolution implements Resolution {
-  const factory _Resolution({final int? width, final int? height}) =
-      _$ResolutionImpl;
-
-  factory _Resolution.fromJson(Map<String, dynamic> json) =
-      _$ResolutionImpl.fromJson;
-
-  @override
-  int? get width;
-  @override
-  int? get height;
-  @override
-  @JsonKey(ignore: true)
-  _$$ResolutionImplCopyWith<_$ResolutionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Resolution&&(identical(other.width, width) || other.width == width)&&(identical(other.height, height) || other.height == height));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,width,height);
+
+@override
+String toString() {
+  return 'Resolution(width: $width, height: $height)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ResolutionCopyWith<$Res> implements $ResolutionCopyWith<$Res> {
+  factory _$ResolutionCopyWith(_Resolution value, $Res Function(_Resolution) _then) = __$ResolutionCopyWithImpl;
+@override @useResult
+$Res call({
+ int? width, int? height
+});
+
+
+
+
+}
+/// @nodoc
+class __$ResolutionCopyWithImpl<$Res>
+    implements _$ResolutionCopyWith<$Res> {
+  __$ResolutionCopyWithImpl(this._self, this._then);
+
+  final _Resolution _self;
+  final $Res Function(_Resolution) _then;
+
+/// Create a copy of Resolution
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? width = freezed,Object? height = freezed,}) {
+  return _then(_Resolution(
+width: freezed == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
+as int?,height: freezed == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
+// dart format on

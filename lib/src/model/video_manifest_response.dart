@@ -6,13 +6,14 @@ part 'video_manifest_response.freezed.dart';
 part 'video_manifest_response.g.dart';
 
 @freezed
-class VideoManifestResponse with _$VideoManifestResponse {
+abstract class VideoManifestResponse with _$VideoManifestResponse {
   const factory VideoManifestResponse({
     Resolution? resolution,
     String? stream,
   }) = _VideoManifestResponse;
 
-  factory VideoManifestResponse.fromJson(Map<String, dynamic> json) => _$VideoManifestResponseFromJson(json);
+  factory VideoManifestResponse.fromJson(Map<String, dynamic> json) =>
+      _$VideoManifestResponseFromJson(json);
 }
 
 extension StreamManifestX on StreamManifest {

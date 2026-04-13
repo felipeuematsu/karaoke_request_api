@@ -6,17 +6,16 @@ part of 'youtube_song_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$YoutubeSongDtoImpl _$$YoutubeSongDtoImplFromJson(Map<String, dynamic> json) =>
-    _$YoutubeSongDtoImpl(
+_YoutubeSongDto _$YoutubeSongDtoFromJson(Map<String, dynamic> json) =>
+    _YoutubeSongDto(
       url: json['url'] as String?,
       title: json['title'] as String?,
       artist: json['artist'] as String?,
       thumbnail: json['thumbnail'] as String?,
-      duration: json['duration'] as int?,
+      duration: (json['duration'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$YoutubeSongDtoImplToJson(
-        _$YoutubeSongDtoImpl instance) =>
+Map<String, dynamic> _$YoutubeSongDtoToJson(_YoutubeSongDto instance) =>
     <String, dynamic>{
       'url': instance.url,
       'title': instance.title,

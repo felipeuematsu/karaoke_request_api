@@ -5,7 +5,7 @@ part 'youtube_song_dto.freezed.dart';
 part 'youtube_song_dto.g.dart';
 
 @freezed
-class YoutubeSongDto with _$YoutubeSongDto {
+abstract class YoutubeSongDto with _$YoutubeSongDto {
   const factory YoutubeSongDto({
     String? url,
     String? title,
@@ -14,5 +14,6 @@ class YoutubeSongDto with _$YoutubeSongDto {
     int? duration,
   }) = _YoutubeSongDto;
 
-  factory YoutubeSongDto.fromJson(Map<String, dynamic> json) => _$YoutubeSongDtoFromJson(json);
+  factory YoutubeSongDto.fromJson(Map<String, dynamic> json) =>
+      _$YoutubeSongDtoFromJson(json);
 }

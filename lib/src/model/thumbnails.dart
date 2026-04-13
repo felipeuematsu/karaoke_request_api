@@ -4,7 +4,7 @@ part 'thumbnails.freezed.dart';
 part 'thumbnails.g.dart';
 
 @freezed
-class Thumbnails with _$Thumbnails {
+abstract class Thumbnails with _$Thumbnails {
   const factory Thumbnails({
     String? lowResUrl,
     String? mediumResUrl,
@@ -13,5 +13,6 @@ class Thumbnails with _$Thumbnails {
     String? maxResUrl,
   }) = _Thumbnails;
 
-  factory Thumbnails.fromJson(Map<String, dynamic> json) => _$ThumbnailsFromJson(json);
+  factory Thumbnails.fromJson(Map<String, dynamic> json) =>
+      _$ThumbnailsFromJson(json);
 }

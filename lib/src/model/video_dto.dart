@@ -5,7 +5,7 @@ part 'video_dto.freezed.dart';
 part 'video_dto.g.dart';
 
 @freezed
-class VideoDto with _$VideoDto {
+abstract class VideoDto with _$VideoDto {
   const factory VideoDto({
     String? id,
     String? title,
@@ -17,5 +17,6 @@ class VideoDto with _$VideoDto {
     DateTime? uploadDate,
   }) = _VideoDto;
 
-  factory VideoDto.fromJson(Map<String, dynamic> json) => _$VideoDtoFromJson(json);
+  factory VideoDto.fromJson(Map<String, dynamic> json) =>
+      _$VideoDtoFromJson(json);
 }

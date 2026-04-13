@@ -6,14 +6,15 @@ part 'search_query_response.freezed.dart';
 part 'search_query_response.g.dart';
 
 @freezed
-class SearchQueryResponse with _$SearchQueryResponse {
+abstract class SearchQueryResponse with _$SearchQueryResponse {
   const factory SearchQueryResponse({
     String? uuid,
     List<VideoDto>? content,
     DateTime? expiration,
   }) = _SearchQueryResponse;
 
-  factory SearchQueryResponse.fromJson(Map<String, dynamic> json) => _$SearchQueryResponseFromJson(json);
+  factory SearchQueryResponse.fromJson(Map<String, dynamic> json) =>
+      _$SearchQueryResponseFromJson(json);
 }
 
 extension VideoX on Video {

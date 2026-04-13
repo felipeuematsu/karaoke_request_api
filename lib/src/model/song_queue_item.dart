@@ -8,7 +8,7 @@ part 'song_queue_item.freezed.dart';
 part 'song_queue_item.g.dart';
 
 @freezed
-class SongQueueItem with _$SongQueueItem {
+abstract class SongQueueItem with _$SongQueueItem {
   const factory SongQueueItem({
     required SongModel song,
     required SingerModel singer,
@@ -19,4 +19,3 @@ class SongQueueItem with _$SongQueueItem {
   factory SongQueueItem.fromJson(Map<String, dynamic> json) =>
       _$SongQueueItemFromJson(json);
 }
-

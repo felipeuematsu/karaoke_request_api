@@ -5,7 +5,7 @@ part 'simple_playlist_model.freezed.dart';
 part 'simple_playlist_model.g.dart';
 
 @freezed
-class SimplePlaylistModel with _$SimplePlaylistModel {
+abstract class SimplePlaylistModel with _$SimplePlaylistModel {
   const factory SimplePlaylistModel({
     int? id,
     String? name,
@@ -16,4 +16,3 @@ class SimplePlaylistModel with _$SimplePlaylistModel {
   factory SimplePlaylistModel.fromJson(Map<String, dynamic> json) =>
       _$SimplePlaylistModelFromJson(json);
 }
-

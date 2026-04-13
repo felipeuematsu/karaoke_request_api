@@ -7,7 +7,7 @@ part 'now_playing_song_model.freezed.dart';
 part 'now_playing_song_model.g.dart';
 
 @freezed
-class NowPlayingSongModel with _$NowPlayingSongModel {
+abstract class NowPlayingSongModel with _$NowPlayingSongModel {
   const factory NowPlayingSongModel({
     required SongModel? song,
     required int? songId,
